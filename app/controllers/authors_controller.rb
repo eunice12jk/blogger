@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1
   # GET /authors/1.json
+  before_filter :zero_authors_or_authenticated, only: [:new, :create]
   def show
   end
 
@@ -27,6 +28,7 @@ before_filter :zero_authors_or_authenticated, only: [:new, :create]
   end
 
   # GET /authors/1/edit
+  before_filter :zero_authors_or_authenticated, only: [:new, :create]
   def edit
   end
 
@@ -48,6 +50,7 @@ before_filter :zero_authors_or_authenticated, only: [:new, :create]
 
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
+  before_filter :zero_authors_or_authenticated, only: [:new, :create]
   def update
     respond_to do |format|
       if @author.update(author_params)
@@ -62,6 +65,7 @@ before_filter :zero_authors_or_authenticated, only: [:new, :create]
 
   # DELETE /authors/1
   # DELETE /authors/1.json
+  before_filter :zero_authors_or_authenticated, only: [:new, :create]
   def destroy
     @author.destroy
     respond_to do |format|
